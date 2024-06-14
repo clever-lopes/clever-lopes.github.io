@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import HeroSection from '../components/HeroSection.vue'
+// import ProjectsSection from '../components/ProjectsSection.vue'
+// import StackSection from '../components/ProjectsSection.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <div class="container">
+      <HeroSection />
+      <!-- <ProjectsSection /> -->
+      <!-- <StackSection /> -->
+    </div>
   </main>
 </template>
+
+<style scoped>
+/* .container {
+  display: flex;
+  justify-content: center;
+} */
+</style>

@@ -1,32 +1,14 @@
-<script setup lang="ts"></script>
+<script lang="ts"></script>
 
 <template>
   <section>
     <h1>Main Projects</h1>
     <h2>Pinned Projects on github</h2>
-    <li class="projects_list">
+    <li class="flex">
       <ol>
         <div>
-          <div class="card loading">
+          <div class="rounded-full bg-gray-300 w-16 h-16">
             <span>Project 1</span>
-          </div>
-          <p>Title</p>
-          <p>Description</p>
-        </div>
-      </ol>
-      <ol>
-        <div>
-          <div class="card loading">
-            <span>Project 2</span>
-          </div>
-          <p>Title</p>
-          <p>Description</p>
-        </div>
-      </ol>
-      <ol>
-        <div>
-          <div class="card loading">
-            <span>Project 3</span>
           </div>
           <p>Title</p>
           <p>Description</p>
@@ -35,20 +17,3 @@
     </li>
   </section>
 </template>
-
-<style scoped>
-.loading {
-  background-color: lightgray;
-}
-
-.card {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 100%;
-}
-
-.projects_list {
-  text-decoration: none;
-  display: flex;
-}
-</style>

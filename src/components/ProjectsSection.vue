@@ -1,12 +1,98 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { EffectCoverflow, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+
+const data = ref(null)
+const loading = ref(true)
+const error = ref(null)
+
+function fetchData() {
+  // Will be implemented next
+}
+
+onMounted(() => {
+  fetchData()
+})
+
+const projects = [
+  { image: 'https://picsum.photos/seed/picsum/200/200', title: 'a' },
+  { image: 'https://picsum.photos/seed/picsum/200/200', title: 'b' },
+  { image: 'https://picsum.photos/seed/picsum/200/200', title: 'c' },
+  { image: 'https://picsum.photos/seed/picsum/200/200', title: 'd' }
+]
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper)
+    }
+    const onSlideChange = () => {
+      console.log('slide change')
+    }
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [EffectCoverflow, Pagination],
+      projects,
+      data,
+      loading,
+      error
+    }
+  }
+}
+</script>
+
 <template>
-  <section>
-    <h1>Main Projects</h1>
-    <h2>Pinned Projects on github</h2>
-    <li class="projects_list">
+  <section class="mt-5">
+    <div class="px-4">
+      <div>
+        <h1>Main Projects</h1>
+        <h2>Pinned Projects on github</h2>
+      </div>
+
+      <Swiper
+        :effect="'coverflow'"
+        :grabCursor="true"
+        :centeredSlides="true"
+        :loop="true"
+        :slidesPerView="auto"
+        :coverflowEffect="{
+          depth: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5
+          // slideShadows: false
+        }"
+        :pagination="true"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <SwiperSlide v-for="({ image, title }, index) in projects" :key="index">
+          <div>
+            <div>
+              <span class="absolute pl-1 text-2xl text-white font-semibold"
+                >Project {{ index + 1 }}</span
+              >
+              <img class="w-40 h-40 rounded-xl" :src="image" alt="" />
+              <div>
+                <p>{{ title }}</p>
+                <p>Description</p>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
+    <!-- <li class="flex">
       <ol>
         <div>
-          <div class="card loading">
+          <div class="bg-gray-300 w-16 h-16">
             <span>Project 1</span>
           </div>
           <p>Title</p>
@@ -15,7 +101,7 @@
       </ol>
       <ol>
         <div>
-          <div class="card loading">
+          <div class="bg-gray-300 w-16 h-16">
             <span>Project 2</span>
           </div>
           <p>Title</p>
@@ -24,28 +110,13 @@
       </ol>
       <ol>
         <div>
-          <div class="card loading">
+          <div class="bg-gray-300 w-16 h-16">
             <span>Project 3</span>
           </div>
           <p>Title</p>
           <p>Description</p>
         </div>
       </ol>
-    </li>
+    </li> -->
   </section>
 </template>
-<style scoped>
-.loading {
-  background-color: lightgray;
-}
-
-.card {
-  width: 4rem;
-  height: 4rem;
-}
-
-.projects_list {
-  text-decoration: none;
-  display: flex;
-}
-</style>

@@ -3,12 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectCoverflow, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
+import axios from 'axios'
 
 const data = ref(null)
 const loading = ref(true)
 const error = ref(null)
 
 function fetchData() {
+  axios.get('').then()
   // Will be implemented next
 }
 

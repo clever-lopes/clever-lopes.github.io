@@ -1,22 +1,18 @@
 <script lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectCoverflow, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
-import axios from 'axios'
+import { EffectCoverflow, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { onMounted, ref } from 'vue'
 
 const data = ref(null)
 const loading = ref(true)
 const error = ref(null)
 
-function fetchData() {
-  axios.get('').then()
-  // Will be implemented next
-}
-
-onMounted(() => {
-  fetchData()
-})
+const fetchData = async () =>
+  onMounted(() => {
+    fetchData()
+  })
 
 const projects = [
   { image: 'https://picsum.photos/seed/picsum/200/200', title: 'a' },
@@ -30,7 +26,9 @@ export default {
     Swiper,
     SwiperSlide
   },
-  setup() {
+  async setup() {
+    await fetchData()
+
     const onSwiper = (swiper) => {
       console.log(swiper)
     }

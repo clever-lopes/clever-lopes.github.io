@@ -1,18 +1,9 @@
 <script lang="ts">
+// import gql from 'graphql-tag'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import { EffectCoverflow, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { onMounted, ref } from 'vue'
-
-const data = ref(null)
-const loading = ref(true)
-const error = ref(null)
-
-const fetchData = async () =>
-  onMounted(() => {
-    fetchData()
-  })
 
 const projects = [
   { image: 'https://picsum.photos/seed/picsum/200/200', title: 'a' },
@@ -26,23 +17,19 @@ export default {
     Swiper,
     SwiperSlide
   },
-  async setup() {
-    await fetchData()
-
-    const onSwiper = (swiper) => {
+  setup() {
+    const onSwiper = (swiper: any) => {
       console.log(swiper)
     }
     const onSlideChange = () => {
       console.log('slide change')
     }
+
     return {
       onSwiper,
       onSlideChange,
       modules: [EffectCoverflow, Pagination],
-      projects,
-      data,
-      loading,
-      error
+      projects
     }
   }
 }
@@ -52,8 +39,8 @@ export default {
   <section class="mt-5">
     <div class="px-4">
       <div>
-        <h1>Main Projects</h1>
-        <h2>Pinned Projects on github</h2>
+        <h1 class="font-semibold text-xl">Main Projects</h1>
+        <h2 class="font-normal text-gray-400 text-sm">Pinned Projects on github</h2>
       </div>
 
       <Swiper
@@ -61,19 +48,18 @@ export default {
         :grabCursor="true"
         :centeredSlides="true"
         :loop="true"
-        :slidesPerView="auto"
+        :slidesPerView="2"
         :coverflowEffect="{
           depth: 0,
           stretch: 0,
-          depth: 100,
-          modifier: 2.5
-          // slideShadows: false
+          modifier: 1,
+          slideShadows: false
         }"
         :pagination="true"
         :modules="modules"
         class="mySwiper"
       >
-        <SwiperSlide v-for="({ image, title }, index) in projects" :key="index">
+        <SwiperSlide class="mt-2" v-for="({ image, title }, index) in projects" :key="index">
           <div>
             <div>
               <span class="absolute pl-1 text-2xl text-white font-semibold"
@@ -81,8 +67,8 @@ export default {
               >
               <img class="w-40 h-40 rounded-xl" :src="image" alt="" />
               <div>
-                <p>{{ title }}</p>
-                <p>Description</p>
+                <p class="font-medium text-sm">{{ title }}</p>
+                <p class="font-normal text-sm text-gray-400">Description</p>
               </div>
             </div>
           </div>

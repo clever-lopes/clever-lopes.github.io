@@ -1,4 +1,4 @@
-<script setup slang="ts"></script>
+<script setup lang="ts"></script>
 
 <template>
   <section>

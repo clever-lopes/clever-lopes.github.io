@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "tw": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/dist/main.css --watch",
-    "tw:build": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/dist/main.css",
+    "tw:build": "npx tailwindcss -i ./src/assets/input.css -o ./dist/assets/main.css",
     "dev": "vite && npm tw",
-    "build": "run-p type-check \"build-only {@}\" tw:build --",
+    "build": "run-p type-check tw:build \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",

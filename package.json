@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "tw": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/dist/main.css --watch",
-    "dev": "vite",
+    "dev": "vite && pnpm tw",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",

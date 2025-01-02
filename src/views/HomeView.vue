@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import HeroSection from '@/components/HeroSection.vue'
-import ProjectsSection from '@/components/ProjectsSection.vue'
-import StackSection from '../components/StackSection.vue'
 </script>
 
 <template>
-  <main class="max-md:pb-32">
-    <HeroSection />
-    <ProjectsSection />
-    <StackSection />
+  <main class="dark:bg-dafault max-md:pb-32">
+    <div>
+      <img src="../assets/User.jpeg" width="100" height="100" class="rounded-full m-auto" />
+    </div>
+    <h1 class="dark:text-headline text-center mt-2 text-2xl font-bold">Hey! I'm Clever Lopes 🖖</h1>
   </main>
 </template>

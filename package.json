@@ -6,7 +6,7 @@
   "scripts": {
     "tw": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/dist/main.css --watch",
     "tw:build": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/dist/main.css",
-    "dev": "vite && npm tw",
+    "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "predeploy": "npm run build",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@apollo/client": "^3.10.5",
     "@vue/apollo-option": "^4.0.0",
+    "@vueuse/core": "^12.2.0",
     "graphql": "^16.8.2",
     "graphql-tag": "^2.12.6",
     "swiper": "^11.1.4",

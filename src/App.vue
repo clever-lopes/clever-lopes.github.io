@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import IconSun from '@/components/icons/IconSun.vue'
-import { RouterLink, RouterView } from 'vue-router'
+import IconSun from '@/components/icons/IconSun.vue';
+import { useDark, useToggle } from "@vueuse/core";
+import { RouterLink, RouterView } from 'vue-router';
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <template>
   <header>
     <div class="py-10 flex justify-center">
-      <nav class="flex w-4/5 justify-between">
+      <nav class="flex w-4/5 justify-between ">
         <button type="button">Português</button>
-        <button type="button"><IconSun /></button>
+        <button @click="toggleDark()" type="button"><IconSun /></button>
       </nav>
     </div>
   </header>
 
+  
   <RouterView />
 
   <footer class="fixed left-0 bottom-0 w-full h-20 text-center max-sm:bg-white z-50">

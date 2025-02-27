@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+[data-theme="dark"] {
+  --acme-canvas-color: oklch(0.21 0.034 264.665);
+}
+
+@theme {
+  --color-default: "#16161a";
+  --color-headline: "#fffffe";
+  --color-paragraph: "#94a1b2";
+  --color-button: "#7f5af0";
+  --color-button_text: "#fffffe";
+}

@@ -1,186 +1,226 @@
 <script setup lang="ts">
-import IconSun from '@/components/icons/IconSun.vue'
 import { useDark, useToggle } from '@vueuse/core'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-const stack = {
-  Languages: ['TypeScript', 'JavaScript', 'Go'],
-  Backend: ['NestJS', 'Node.js', 'PostgreSQL', 'TypeORM'],
-  Frontend: ['React', 'Vue', 'Tailwind CSS'],
-  'Tooling & infra': ['Nx', 'Docker', 'GitHub Actions', 'Jest', 'Linux'],
-}
+const year = new Date().getFullYear()
 
 const projects = [
   {
+    index: '01',
+    kind: 'Product',
     name: 'Caff CRM',
-    role: 'Own product, in development',
     blurb:
-      'CRM for small sales teams. Nx monorepo with a NestJS API and a React dashboard, multi-tenant by design, deployed from CI to its own infrastructure.',
-    tags: ['TypeScript', 'NestJS', 'React', 'Nx', 'PostgreSQL'],
-    links: [{ label: 'caffcrm.com', href: 'https://caffcrm.com' }],
+      'CRM for small sales teams. Nx monorepo with a NestJS API and a React dashboard, multi-tenant by design, shipped from CI to its own infrastructure.',
+    stack: 'TypeScript · NestJS · React · Nx · PostgreSQL',
+    href: 'https://caffcrm.com',
   },
   {
-    name: 'Fullstack delivery app',
-    role: 'Personal project',
+    index: '02',
+    kind: 'Fullstack',
+    name: 'Delivery Platform',
     blurb:
-      'Delivery platform for a beverage distributor: order flow, user roles and real-time order status.',
-    tags: ['React', 'Node.js', 'Express', 'Sequelize'],
-    links: [
-      {
-        label: 'Source',
-        href: 'https://github.com/clever-lopes/fullstack-delivery-app',
-      },
-    ],
+      'Order flow, user roles and real-time order status for a beverage distributor.',
+    stack: 'React · Node.js · Express · Sequelize',
+    href: 'https://github.com/clever-lopes/fullstack-delivery-app',
   },
   {
-    name: 'Recipes app',
-    role: 'Personal project',
+    index: '03',
+    kind: 'Frontend',
+    name: 'Recipes App',
     blurb:
       'Browse, search, filter and favorite recipes and drinks, with step-by-step preparation tracking.',
-    tags: ['React', 'JavaScript', 'Context API'],
-    links: [
-      {
-        label: 'Source',
-        href: 'https://github.com/clever-lopes/frontend-recipes-app',
-      },
-    ],
+    stack: 'React · JavaScript · Context API',
+    href: 'https://github.com/clever-lopes/frontend-recipes-app',
   },
+]
+
+const stack = [
+  { group: 'Languages', items: 'TypeScript · JavaScript · Go' },
+  { group: 'Backend', items: 'NestJS · Node.js · PostgreSQL · TypeORM' },
+  { group: 'Frontend', items: 'React · Vue · Tailwind CSS' },
+  { group: 'Tooling', items: 'Nx · Docker · GitHub Actions · Jest · Linux' },
 ]
 
 const contacts = [
   { label: 'Email', value: 'tk_clever.junior@outlook.com', href: 'mailto:tk_clever.junior@outlook.com' },
-  { label: 'LinkedIn', value: '/in/clever-lopes', href: 'https://www.linkedin.com/in/clever-lopes/' },
-  { label: 'GitHub', value: '@clever-lopes', href: 'https://github.com/clever-lopes' },
+  { label: 'LinkedIn', value: 'in/clever-lopes', href: 'https://www.linkedin.com/in/clever-lopes/' },
+  { label: 'GitHub', value: 'clever-lopes', href: 'https://github.com/clever-lopes' },
 ]
 </script>
 
 <template>
-  <div class="min-h-screen bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200">
-    <header class="mx-auto flex max-w-3xl items-center justify-between px-6 py-8">
-      <span class="text-sm font-semibold tracking-tight">Clever Lopes</span>
-      <button
-        type="button"
-        aria-label="Toggle dark mode"
-        class="rounded-md p-2 transition hover:bg-slate-100 dark:hover:bg-slate-800"
-        @click="toggleDark()"
-      >
-        <IconSun />
-      </button>
+  <div
+    class="min-h-screen bg-paper font-sans text-ink antialiased dark:bg-ink dark:text-paper"
+  >
+    <!-- header -->
+    <header
+      class="flex items-center justify-between border-b border-rule px-6 py-5 dark:border-rule-dark sm:px-10"
+    >
+      <span class="label">Clever Lopes</span>
+      <div class="flex items-center gap-6">
+        <span class="label hidden text-right leading-relaxed opacity-60 sm:block">
+          Fullstack Engineer<br />TypeScript
+        </span>
+        <button
+          type="button"
+          aria-label="Toggle theme"
+          class="label border border-rule px-3 py-1.5 transition hover:bg-ink hover:text-paper dark:border-rule-dark dark:hover:bg-paper dark:hover:text-ink"
+          @click="toggleDark()"
+        >
+          {{ isDark ? 'Light' : 'Dark' }}
+        </button>
+      </div>
     </header>
 
-    <main class="mx-auto max-w-3xl px-6 pb-24">
-      <section class="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+    <!-- hero -->
+    <section class="grid border-b border-rule dark:border-rule-dark lg:grid-cols-2">
+      <div class="flex flex-col justify-between px-6 py-12 sm:px-10 lg:py-20">
+        <p class="label opacity-60">Profile / {{ year }}</p>
+
+        <h1 class="mt-14 text-[clamp(3.5rem,11vw,7.5rem)] font-semibold leading-[0.88] tracking-[-0.04em]">
+          Clever<br />Lopes
+        </h1>
+
+        <p class="mt-14 max-w-md font-serif text-xl leading-snug sm:text-2xl">
+          Fullstack TypeScript engineer in Curitiba, Brazil. He builds products for the
+          financial market and works across the whole stack, from the database to the
+          interface.
+        </p>
+      </div>
+
+      <div class="relative min-h-[22rem] bg-ink lg:min-h-0">
         <img
           src="@/assets/User.jpeg"
           alt="Clever Lopes"
-          width="112"
-          height="112"
-          class="h-28 w-28 shrink-0 rounded-full object-cover"
+          class="h-full w-full object-cover grayscale"
         />
-        <div>
-          <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Clever Lopes</h1>
-          <p class="mt-1 text-lg text-slate-600 dark:text-slate-400">
-            Fullstack TypeScript Engineer
-          </p>
-          <p class="mt-1 text-sm text-slate-500 dark:text-slate-500">Curitiba, Brazil</p>
+        <div
+          class="label absolute inset-x-0 bottom-0 flex justify-between px-5 py-4 text-paper mix-blend-difference"
+        >
+          <span>Clever Lopes</span>
+          <span>0001 / B&amp;W</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="mt-12">
-        <p class="text-lg leading-relaxed">
-          I build products for the financial market at
-          <a
-            href="https://qtvgroup.com"
-            class="font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-slate-500 dark:decoration-slate-600"
-            >Quantum Tech Ventures</a
-          >, mostly TypeScript across the whole stack.
-        </p>
-        <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
-          I work across the whole product, not just the code. Architecture, UX and business
-          constraints are part of the job, and I ship end to end. Lately I have been deep in AI
-          agents and developer tooling, and in software architecture: DDD, Clean Architecture and
-          modular monoliths.
-        </p>
-      </section>
-
-      <section class="mt-14">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Stack</h2>
-        <dl class="mt-5 space-y-4">
-          <div v-for="(items, group) in stack" :key="group" class="sm:flex sm:gap-6">
-            <dt class="w-40 shrink-0 text-sm text-slate-500 dark:text-slate-500">{{ group }}</dt>
-            <dd class="mt-1 flex flex-wrap gap-2 sm:mt-0">
-              <span
-                v-for="item in items"
-                :key="item"
-                class="rounded-md bg-slate-100 px-2 py-1 text-sm dark:bg-slate-800"
-                >{{ item }}</span
-              >
-            </dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="mt-14">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500">
-          Selected work
+    <!-- about -->
+    <section class="grid gap-y-8 border-b border-rule px-6 py-20 dark:border-rule-dark sm:px-10 lg:grid-cols-[14rem_1fr] lg:py-28">
+      <p class="label opacity-60">01 / About</p>
+      <div class="max-w-3xl">
+        <h2 class="font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          Engineering the whole<br class="hidden sm:block" />
+          product, not just the code.
         </h2>
-        <ul class="mt-5 space-y-8">
+        <div class="mt-12 grid gap-8 text-[0.95rem] leading-relaxed sm:grid-cols-2">
+          <p>
+            I work as a fullstack TypeScript engineer at
+            <a
+              href="https://qtvgroup.com"
+              class="underline decoration-1 underline-offset-4 opacity-100 transition hover:opacity-60"
+              >Quantum Tech Ventures</a
+            >, a holding in the financial market. Architecture, UX and business constraints
+            are part of the job, and I ship end to end.
+          </p>
+          <p>
+            Lately I have been deep in AI agents and developer tooling, and in software
+            architecture: domain-driven design, clean architecture and modular monoliths.
+            I also build and run my own product on my own infrastructure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- work -->
+    <section class="grid gap-y-8 border-b border-rule px-6 py-20 dark:border-rule-dark sm:px-10 lg:grid-cols-[14rem_1fr] lg:py-28">
+      <p class="label opacity-60">02 / Work</p>
+      <div>
+        <h2 class="font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          Selected work.
+        </h2>
+
+        <ul class="mt-14">
           <li
             v-for="project in projects"
-            :key="project.name"
-            class="border-l-2 border-slate-200 pl-5 dark:border-slate-800"
+            :key="project.index"
+            class="border-t border-rule dark:border-rule-dark"
           >
-            <div class="flex flex-wrap items-baseline gap-x-3">
-              <h3 class="text-lg font-semibold">{{ project.name }}</h3>
-              <span class="text-sm text-slate-500">{{ project.role }}</span>
-            </div>
-            <p class="mt-2 leading-relaxed text-slate-600 dark:text-slate-400">
-              {{ project.blurb }}
-            </p>
-            <div class="mt-3 flex flex-wrap gap-2">
+            <a
+              :href="project.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group grid gap-x-8 gap-y-3 py-8 transition sm:grid-cols-[9rem_1fr_1.5rem] lg:grid-cols-[9rem_16rem_1fr_1.5rem]"
+            >
+              <span class="label whitespace-nowrap pt-2 opacity-60"
+                >{{ project.index }} / {{ project.kind }}</span
+              >
+              <h3 class="font-serif text-3xl leading-tight transition group-hover:opacity-60">
+                {{ project.name }}
+              </h3>
+              <div class="max-w-md">
+                <p class="text-sm leading-relaxed opacity-80">{{ project.blurb }}</p>
+                <p class="label mt-3 opacity-50">{{ project.stack }}</p>
+              </div>
               <span
-                v-for="tag in project.tags"
-                :key="tag"
-                class="rounded-md bg-slate-100 px-2 py-0.5 text-xs dark:bg-slate-800"
-                >{{ tag }}</span
+                class="hidden self-start pt-3 text-lg transition group-hover:translate-x-1 sm:block"
+                aria-hidden="true"
+                >&rarr;</span
               >
-            </div>
-            <p class="mt-3 flex flex-wrap gap-4">
-              <a
-                v-for="link in project.links"
-                :key="link.href"
-                :href="link.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-sm font-medium underline decoration-slate-300 underline-offset-4 hover:decoration-slate-500 dark:decoration-slate-600"
-                >{{ link.label }}</a
-              >
-            </p>
+            </a>
           </li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <section class="mt-14">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-500">Contact</h2>
-        <dl class="mt-5 space-y-2">
-          <div v-for="contact in contacts" :key="contact.label" class="flex gap-6">
-            <dt class="w-40 shrink-0 text-sm text-slate-500 dark:text-slate-500">
-              {{ contact.label }}
-            </dt>
+    <!-- stack -->
+    <section class="grid gap-y-8 border-b border-rule px-6 py-20 dark:border-rule-dark sm:px-10 lg:grid-cols-[14rem_1fr] lg:py-28">
+      <p class="label opacity-60">03 / Stack</p>
+      <dl class="max-w-3xl">
+        <div
+          v-for="row in stack"
+          :key="row.group"
+          class="grid gap-x-8 gap-y-1 border-t border-rule py-5 dark:border-rule-dark sm:grid-cols-[10rem_1fr]"
+        >
+          <dt class="label pt-1 opacity-60">{{ row.group }}</dt>
+          <dd class="text-[0.95rem]">{{ row.items }}</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- contact -->
+    <section class="grid gap-y-8 px-6 py-20 sm:px-10 lg:grid-cols-[14rem_1fr] lg:py-28">
+      <p class="label opacity-60">04 / Contact</p>
+      <div class="max-w-3xl">
+        <h2 class="font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          Let's talk.
+        </h2>
+        <dl class="mt-14">
+          <div
+            v-for="contact in contacts"
+            :key="contact.label"
+            class="grid gap-x-8 gap-y-1 border-t border-rule py-5 dark:border-rule-dark sm:grid-cols-[10rem_1fr]"
+          >
+            <dt class="label pt-1 opacity-60">{{ contact.label }}</dt>
             <dd>
               <a
                 :href="contact.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="underline decoration-slate-300 underline-offset-4 hover:decoration-slate-500 dark:decoration-slate-600"
+                class="underline decoration-1 underline-offset-4 transition hover:opacity-60"
                 >{{ contact.value }}</a
               >
             </dd>
           </div>
         </dl>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <footer
+      class="label flex flex-col gap-2 border-t border-rule px-6 py-8 opacity-60 dark:border-rule-dark sm:flex-row sm:justify-between sm:px-10"
+    >
+      <span>Clever Lopes &mdash; Curitiba, Brazil</span>
+      <span>{{ year }}</span>
+    </footer>
   </div>
 </template>

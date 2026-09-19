@@ -2,24 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Clever Lopes — Fullstack TypeScript Engineer</title>
     <meta
       name="description"
-      content="Fullstack TypeScript engineer based in Curitiba, Brazil. NestJS, React, Node and Nx monorepos in production for the financial market."
+      content="Clever Lopes is a fullstack TypeScript engineer in Curitiba, Brazil, working with NestJS, React, Node and Nx monorepos on products for the financial market."
     />
+    <meta name="author" content="Clever Lopes" />
+    <meta name="theme-color" content="#1d5cff" />
     <link rel="canonical" href="https://clever-lopes.github.io/" />
 
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
     <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Clever Lopes" />
     <meta property="og:title" content="Clever Lopes — Fullstack TypeScript Engineer" />
     <meta
       property="og:description"
-      content="Fullstack TypeScript engineer based in Curitiba, Brazil. NestJS, React, Node and Nx monorepos in production for the financial market."
+      content="Fullstack TypeScript engineer in Curitiba, Brazil. NestJS, React, Node and Nx monorepos on products for the financial market."
     />
     <meta property="og:url" content="https://clever-lopes.github.io/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://clever-lopes.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Clever Lopes, fullstack TypeScript engineer" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="profile:first_name" content="Clever" />
+    <meta property="profile:last_name" content="Lopes" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Clever Lopes — Fullstack TypeScript Engineer" />
+    <meta
+      name="twitter:description"
+      content="Fullstack TypeScript engineer in Curitiba, Brazil. NestJS, React, Node and Nx."
+    />
+    <meta name="twitter:image" content="https://clever-lopes.github.io/og-image.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,9 +48,78 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!--
+      Structured data. Crawlers that do not execute JavaScript read this and
+      still get every fact about the profile: role, employer, location, skills
+      and the canonical links out.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Clever Lopes",
+        "givenName": "Clever",
+        "familyName": "Lopes",
+        "url": "https://clever-lopes.github.io/",
+        "image": "https://clever-lopes.github.io/og-image.png",
+        "jobTitle": "Fullstack TypeScript Engineer",
+        "email": "mailto:tk_clever.junior@outlook.com",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Quantum Tech Holding",
+          "url": "https://qtvholding.com"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "addressCountry": "BR"
+        },
+        "knowsLanguage": ["pt-BR", "en"],
+        "knowsAbout": [
+          "TypeScript",
+          "NestJS",
+          "React",
+          "Vue",
+          "Node.js",
+          "Nx",
+          "PostgreSQL",
+          "Docker",
+          "Software Architecture",
+          "Domain-Driven Design",
+          "AI Agents"
+        ],
+        "sameAs": [
+          "https://github.com/clever-lopes",
+          "https://www.linkedin.com/in/clever-lopes/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
+
+    <!--
+      Fallback for crawlers and readers without JavaScript. Vue replaces the
+      #app container on mount, so this never double-renders for real users.
+    -->
+    <noscript>
+      <h1>Clever Lopes</h1>
+      <p><strong>Fullstack TypeScript Engineer</strong> — Curitiba, Brazil</p>
+      <p>
+        I build products for the financial market at
+        <a href="https://qtvholding.com">Quantum Tech Holding</a>, working across the whole
+        stack: TypeScript, NestJS, React, Node.js, Nx and PostgreSQL.
+      </p>
+      <ul>
+        <li><a href="mailto:tk_clever.junior@outlook.com">tk_clever.junior@outlook.com</a></li>
+        <li><a href="https://www.linkedin.com/in/clever-lopes/">LinkedIn</a></li>
+        <li><a href="https://github.com/clever-lopes">GitHub</a></li>
+        <li><a href="https://caffcrm.com">Caff CRM — my own product</a></li>
+      </ul>
+    </noscript>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

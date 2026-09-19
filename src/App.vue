@@ -28,7 +28,7 @@ const projects = computed(() => [
   },
   {
     index: '02',
-    kind: t.value.kinds.fullstack,
+    kind: t.value.kinds.team,
     name: 'Delivery Platform',
     blurb: t.value.projects.delivery,
     stack: 'React · Node.js · Express · Sequelize',
@@ -36,7 +36,7 @@ const projects = computed(() => [
   },
   {
     index: '03',
-    kind: t.value.kinds.frontend,
+    kind: t.value.kinds.team,
     name: 'Recipes App',
     blurb: t.value.projects.recipes,
     stack: 'React · JavaScript · Context API',

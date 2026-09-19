@@ -63,13 +63,13 @@ const messages = {
     contactTitle: "Let's talk.",
     contactLead: 'Open to interesting problems and good conversation.',
 
-    kinds: { product: 'Product', fullstack: 'Fullstack', frontend: 'Frontend' },
+    kinds: { product: 'Own product', team: 'Team project' },
     projects: {
       caff: 'CRM for small sales teams. Nx monorepo with a NestJS API and a React dashboard, multi-tenant by design, shipped from CI to its own infrastructure.',
       delivery:
-        'Order flow, user roles and real-time order status for a beverage distributor.',
+        'Order flow, user roles and real-time order status for a beverage distributor. Built by a team of five; I wrote about a third of it, across the API and the front end.',
       recipes:
-        'Browse, search, filter and favorite recipes and drinks, with step-by-step preparation tracking.',
+        'Recipe and drink browser with search, filters and step-by-step preparation tracking. Four-person team; I contributed to the front end.',
     },
   },
 
@@ -104,13 +104,13 @@ const messages = {
     contactTitle: 'Vamos conversar.',
     contactLead: 'Aberto a problemas interessantes e boas conversas.',
 
-    kinds: { product: 'Produto', fullstack: 'Fullstack', frontend: 'Frontend' },
+    kinds: { product: 'Produto próprio', team: 'Projeto em equipe' },
     projects: {
       caff: 'CRM para times pequenos de vendas. Monorepo Nx com API NestJS e dashboard React, multi-tenant por design, publicado pela CI na própria infraestrutura.',
       delivery:
-        'Fluxo de pedidos, papéis de usuário e status em tempo real para uma distribuidora de bebidas.',
+        'Fluxo de pedidos, papéis de usuário e status em tempo real para uma distribuidora de bebidas. Time de cinco; escrevi cerca de um terço, entre API e front.',
       recipes:
-        'Buscar, filtrar e favoritar receitas e drinks, com acompanhamento do preparo passo a passo.',
+        'Busca, filtros e acompanhamento do preparo de receitas e drinks. Time de quatro; contribuí no front.',
     },
   },
 } as const

@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
-import { computed } from 'vue'
-import { locale, t, toggleLocale } from '@/i18n'
+import { computed, onMounted, ref } from 'vue'
+import { locale, restoreLocale, t, toggleLocale } from '@/i18n'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+
+// The page is prerendered at build time. Anything that depends on
+// localStorage or the OS theme only settles after mount, so the first client
+// render stays identical to the server one and hydration has nothing to fix.
+const hydrated = ref(false)
+onMounted(() => {
+  restoreLocale()
+  hydrated.value = true
+})
 
 const year = new Date().getFullYear()
 
@@ -61,10 +70,10 @@ const contacts = [
           <button
             type="button"
             class="label border border-rule px-3 py-1.5 transition hover:border-brand hover:text-brand dark:border-rule-dark dark:hover:border-brand-soft dark:hover:text-brand-soft"
-            :aria-label="locale === 'en' ? 'Mudar para português' : 'Switch to English'"
+            :aria-label="hydrated && locale === 'pt' ? 'Switch to English' : 'Mudar para português'"
             @click="toggleLocale()"
           >
-            {{ locale === 'en' ? 'PT' : 'EN' }}
+            {{ hydrated && locale === 'pt' ? 'EN' : 'PT' }}
           </button>
           <button
             type="button"
@@ -72,7 +81,7 @@ const contacts = [
             class="label border border-rule px-3 py-1.5 transition hover:border-brand hover:text-brand dark:border-rule-dark dark:hover:border-brand-soft dark:hover:text-brand-soft"
             @click="toggleDark()"
           >
-            {{ isDark ? 'Light' : 'Dark' }}
+            {{ hydrated && isDark ? 'Light' : 'Dark' }}
           </button>
         </div>
       </div>

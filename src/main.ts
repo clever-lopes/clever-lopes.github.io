@@ -1,6 +1,8 @@
 import '@/assets/style.css'
 
-import { createApp } from 'vue'
+import { createSSRApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+// The build prerenders the page into #app (see scripts/prerender.mjs), so the
+// client hydrates that markup instead of throwing it away and rendering again.
+createSSRApp(App).mount('#app')

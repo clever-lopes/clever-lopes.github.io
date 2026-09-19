@@ -11,10 +11,12 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "build-only": "vite build",
+    "build-only": "vite build && npm run build-ssr && npm run prerender",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "build-ssr": "vite build --ssr src/entry-server.ts --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "@vueuse/core": "^12.7.0",

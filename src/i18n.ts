@@ -5,18 +5,24 @@ export type Locale = (typeof LOCALES)[number]
 
 const STORAGE_KEY = 'locale'
 
-function initialLocale(): Locale {
+// The prerender step runs this module in Node, where there is no localStorage.
+const isClient = typeof window !== 'undefined'
+
+// Always starts as English so the first client render matches the prerendered
+// markup exactly. The stored preference is applied after mount, by
+// restoreLocale(), which avoids a hydration mismatch.
+export const locale = ref<Locale>('en')
+
+export function restoreLocale() {
+  if (!isClient) return
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored && (LOCALES as readonly string[]).includes(stored)) {
-    return stored as Locale
+    locale.value = stored as Locale
   }
-  // English is the default, on purpose: the audience is not only Brazilian.
-  return 'en'
 }
 
-export const locale = ref<Locale>(initialLocale())
-
 watch(locale, (value) => {
+  if (!isClient) return
   localStorage.setItem(STORAGE_KEY, value)
   document.documentElement.lang = value
 })

@@ -4,13 +4,17 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
 
-  --color-ink: #0a0a0a;
-  --color-paper: #fafaf9;
-  --color-rule: #d6d3d1;
-  --color-rule-dark: #292524;
+  /* Neutros */
+  --color-paper: #fbfbfc;
+  --color-ink: #0e1116;
+  --color-rule: #e2e5ea;
+  --color-rule-dark: #1e242c;
+
+  /* Azul: a cor da casa */
+  --color-brand: #1d5cff;
+  --color-brand-soft: #6c9bff;
 }
 
 html {
@@ -22,10 +26,26 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Rotulo de secao: mono, minusculo, caixa alta, bem espacado. */
+/* Rotulo de secao: mono, pequeno, caixa alta, espacado. */
 .label {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+/* Sublinhado que cresce do azul, em vez de underline padrao. */
+.link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 0.2s ease, color 0.2s ease;
+}
+.link:hover {
+  color: var(--color-brand);
+  background-size: 100% 2px;
+}
+:where(.dark) .link:hover {
+  color: var(--color-brand-soft);
 }

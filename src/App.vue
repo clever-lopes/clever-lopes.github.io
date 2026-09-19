@@ -107,13 +107,15 @@ const contacts = [
           </div>
         </div>
 
-        <div class="relative order-first aspect-square overflow-hidden lg:order-none">
+        <div class="relative order-first aspect-square overflow-hidden rounded-2xl lg:order-none">
           <img
             src="@/assets/User.jpeg"
-            alt="Clever Lopes"
-            class="h-full w-full object-cover grayscale transition duration-500 hover:grayscale-0"
+            alt="Clever Lopes, fullstack TypeScript engineer"
+            width="800"
+            height="800"
+            class="h-full w-full object-cover"
           />
-          <div class="label absolute inset-x-0 bottom-0 flex justify-between bg-ink/70 px-4 py-2.5 text-paper">
+          <div class="label absolute inset-x-0 bottom-0 flex justify-between bg-ink/65 px-4 py-2.5 text-paper backdrop-blur-sm">
             <span>Clever Lopes</span>
             <span class="text-brand-soft">{{ t.photoCaption }}</span>
           </div>

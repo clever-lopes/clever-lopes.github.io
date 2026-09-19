@@ -142,14 +142,14 @@ const contacts = [
           </h2>
           <div class="mt-8 grid max-w-4xl gap-8 leading-relaxed opacity-80 sm:grid-cols-2">
             <p>
-              {{ t.aboutOne.split('Quantum Tech Holding')[0]
+              {{ t.aboutOne.split('Quantum Tech Ventures')[0]
               }}<a
                 href="https://qtvholding.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="link font-medium opacity-100"
-                >Quantum Tech Holding</a
-              >{{ t.aboutOne.split('Quantum Tech Holding')[1] }}
+                >Quantum Tech Ventures</a
+              >{{ t.aboutOne.split('Quantum Tech Ventures')[1] }}
             </p>
             <p>{{ t.aboutTwo }}</p>
           </div>

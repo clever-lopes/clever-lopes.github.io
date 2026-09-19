@@ -43,7 +43,7 @@ const messages = {
     aboutLabel: 'About',
     aboutTitle: 'I build the whole product, not just the code.',
     aboutOne:
-      'I work as a fullstack TypeScript engineer at Quantum Tech Holding, in the financial market. Architecture, UX and business constraints are part of the job, and I ship end to end.',
+      'I work as a fullstack TypeScript engineer at Quantum Tech Ventures, in the financial market. Architecture, UX and business constraints are part of the job, and I ship end to end.',
     aboutTwo:
       'Lately I have been deep in AI agents and developer tooling, and in software architecture: domain-driven design, clean architecture and modular monoliths. I also build and run my own product on my own infrastructure.',
 
@@ -84,7 +84,7 @@ const messages = {
     aboutLabel: 'Sobre',
     aboutTitle: 'Construo o produto inteiro, não só o código.',
     aboutOne:
-      'Trabalho como engenheiro fullstack TypeScript na Quantum Tech Holding, no mercado financeiro. Arquitetura, UX e restrições de negócio fazem parte do trabalho, e eu entrego de ponta a ponta.',
+      'Trabalho como engenheiro fullstack TypeScript na Quantum Tech Ventures, no mercado financeiro. Arquitetura, UX e restrições de negócio fazem parte do trabalho, e eu entrego de ponta a ponta.',
     aboutTwo:
       'Recentemente tenho me aprofundado em agentes de IA e ferramentas para desenvolvedores, e em arquitetura de software: domain-driven design, clean architecture e monolitos modulares. Também construo e opero meu próprio produto na minha própria infraestrutura.',
 

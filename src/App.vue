@@ -89,7 +89,7 @@ const contacts = [
 
     <!-- hero -->
     <section class="border-b border-rule dark:border-rule-dark">
-      <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 lg:grid-cols-[1fr_20rem] lg:gap-16 lg:px-10 lg:py-20">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:px-10 lg:py-20">
         <div>
           <p class="label text-brand dark:text-brand-soft">
             {{ t.profile }} / {{ year }}
@@ -116,7 +116,7 @@ const contacts = [
           </div>
         </div>
 
-        <div class="relative order-first aspect-square overflow-hidden rounded-2xl lg:order-none">
+        <div class="relative order-first aspect-square w-full max-w-[14rem] overflow-hidden rounded-2xl sm:max-w-[16rem] lg:order-none lg:max-w-none">
           <img
             src="@/assets/User.jpeg"
             alt="Clever Lopes, fullstack TypeScript engineer"
@@ -134,7 +134,7 @@ const contacts = [
 
     <!-- about -->
     <section class="border-b border-rule dark:border-rule-dark">
-      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_1fr] lg:px-10 lg:py-20">
+      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:px-10 lg:py-20">
         <p class="label pt-1 text-brand dark:text-brand-soft">01 / {{ t.aboutLabel }}</p>
         <div>
           <h2 class="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
@@ -159,7 +159,7 @@ const contacts = [
 
     <!-- work -->
     <section class="border-b border-rule dark:border-rule-dark">
-      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_1fr] lg:px-10 lg:py-20">
+      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:px-10 lg:py-20">
         <p class="label pt-1 text-brand dark:text-brand-soft">02 / {{ t.workLabel }}</p>
         <div>
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ t.workTitle }}</h2>
@@ -174,7 +174,7 @@ const contacts = [
                 :href="project.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group grid gap-x-8 gap-y-2 py-6 sm:grid-cols-[1fr_1.25rem] lg:grid-cols-[13rem_1fr_1.25rem]"
+                class="group grid gap-x-8 gap-y-2 py-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_1.25rem] lg:grid-cols-[13rem_minmax(0,1fr)_1.25rem]"
               >
                 <div>
                   <p class="label whitespace-nowrap text-brand dark:text-brand-soft">
@@ -202,7 +202,7 @@ const contacts = [
 
     <!-- stack -->
     <section class="border-b border-rule dark:border-rule-dark">
-      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_1fr] lg:px-10 lg:py-20">
+      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:px-10 lg:py-20">
         <p class="label pt-1 text-brand dark:text-brand-soft">03 / {{ t.stackLabel }}</p>
         <div>
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ t.stackTitle }}</h2>
@@ -210,7 +210,7 @@ const contacts = [
             <div
               v-for="row in stack"
               :key="row.group"
-              class="grid gap-x-8 gap-y-1 border-t border-rule py-4 dark:border-rule-dark sm:grid-cols-[9rem_1fr]"
+              class="grid gap-x-8 gap-y-1 border-t border-rule py-4 dark:border-rule-dark sm:grid-cols-[9rem_minmax(0,1fr)]"
             >
               <dt class="label pt-1 opacity-55">{{ row.group }}</dt>
               <dd>{{ row.items }}</dd>
@@ -222,7 +222,7 @@ const contacts = [
 
     <!-- contact -->
     <section>
-      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_1fr] lg:px-10 lg:py-20">
+      <div class="mx-auto grid max-w-6xl gap-x-12 gap-y-6 px-6 py-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:px-10 lg:py-20">
         <p class="label pt-1 text-brand dark:text-brand-soft">04 / {{ t.contactLabel }}</p>
         <div>
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ t.contactTitle }}</h2>
@@ -231,7 +231,7 @@ const contacts = [
             <div
               v-for="contact in contacts"
               :key="contact.label"
-              class="grid gap-x-8 gap-y-1 border-t border-rule py-4 dark:border-rule-dark sm:grid-cols-[9rem_1fr]"
+              class="grid gap-x-8 gap-y-1 border-t border-rule py-4 dark:border-rule-dark sm:grid-cols-[9rem_minmax(0,1fr)]"
             >
               <dt class="label pt-1 opacity-55">{{ contact.label }}</dt>
               <dd>

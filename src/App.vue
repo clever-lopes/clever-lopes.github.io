@@ -40,7 +40,7 @@ const projects = computed(() => [
     name: 'Recipes App',
     blurb: t.value.projects.recipes,
     stack: 'React · JavaScript · Context API',
-    href: 'https://github.com/clever-lopes/frontend-recipes-app',
+    href: 'https://cleverlopes.com/frontend-recipes-app/',
   },
 ])
 
@@ -51,11 +51,12 @@ const stack = computed(() => [
   { group: t.value.groups.tooling, items: 'Nx · Docker · GitHub Actions · Jest · Linux' },
 ])
 
-const contacts = [
+const contacts = computed(() => [
   { label: 'Email', value: 'tk_clever.junior@outlook.com', href: 'mailto:tk_clever.junior@outlook.com' },
   { label: 'LinkedIn', value: 'in/clever-lopes', href: 'https://www.linkedin.com/in/clever-lopes/' },
   { label: 'GitHub', value: 'clever-lopes', href: 'https://github.com/clever-lopes' },
-]
+  { label: t.value.workGithub, value: 'cleverlopes', href: 'https://github.com/cleverlopes' },
+])
 </script>
 
 <template>

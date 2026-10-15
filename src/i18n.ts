@@ -62,12 +62,13 @@ const messages = {
     contactLabel: 'Contact',
     contactTitle: "Let's talk.",
     contactLead: 'Open to interesting problems and good conversation.',
+    workGithub: 'GitHub (work)',
 
     kinds: { product: 'Own product', team: 'Team project' },
     projects: {
       caff: 'CRM for small sales teams. Nx monorepo with a NestJS API and a React dashboard, multi-tenant by design, shipped from CI to its own infrastructure.',
       delivery:
-        'Order flow, user roles and real-time order status for a beverage distributor. Built by a team of five; I wrote about a third of it, across the API and the front end.',
+        'Ordering app for a beverage distributor: a REST API with JWT login and role-based routes, where customers place orders and sellers move them through their statuses. Team of five; I wrote about 30% of it, almost all on the API. Later I started a solo rewrite in TypeScript, Fastify and Prisma.',
       recipes:
         'Recipe and drink browser with search, filters and step-by-step preparation tracking. Four-person team; I contributed to the front end.',
     },
@@ -103,12 +104,13 @@ const messages = {
     contactLabel: 'Contato',
     contactTitle: 'Vamos conversar.',
     contactLead: 'Aberto a problemas interessantes e boas conversas.',
+    workGithub: 'GitHub (trabalho)',
 
     kinds: { product: 'Produto próprio', team: 'Projeto em equipe' },
     projects: {
       caff: 'CRM para times pequenos de vendas. Monorepo Nx com API NestJS e dashboard React, multi-tenant por design, publicado pela CI na própria infraestrutura.',
       delivery:
-        'Fluxo de pedidos, papéis de usuário e status em tempo real para uma distribuidora de bebidas. Time de cinco; escrevi cerca de um terço, entre API e front.',
+        'App de pedidos para uma distribuidora de bebidas: API REST com login JWT e rotas por papel, em que o cliente faz o pedido e o vendedor avança o status. Time de cinco; escrevi cerca de 30%, quase tudo na API. Depois comecei sozinho uma reescrita em TypeScript, Fastify e Prisma.',
       recipes:
         'Busca, filtros e acompanhamento do preparo de receitas e drinks. Time de quatro; contribuí no front.',
     },

@@ -1,39 +1,29 @@
-# portfolio
+# cleverlopes.com
 
-This template should help get you started developing with Vue 3 in Vite.
+Source of my personal site: https://cleverlopes.com
 
-## Recommended IDE Setup
+A single page in English and Portuguese, with light and dark themes, listing what I do, selected projects, the stack I work with and how to reach me.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Stack
 
-## Type Support for `.vue` Imports in TS
+- Vue 3 and TypeScript, built with Vite
+- Tailwind CSS 4
+- Prerendered at build time: `src/entry-server.ts` renders the page with `@vue/server-renderer` and `scripts/prerender.mjs` writes the HTML into `dist/index.html`, so crawlers and readers without JavaScript get the full content
+- JSON-LD, Open Graph card, robots and sitemap in `index.html` and `public/`
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Tests
 
-## Customize configuration
+`tests/responsive.spec.ts` is a Playwright suite (19 tests) that runs against the production build: no horizontal overflow from 320px to 1920px, every section visible on a phone, project rows inside the viewport, the portrait capped in size, and the name above the fold.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Deploy
 
-## Project Setup
+Every push to `main` runs the type check and the Playwright suite, and only then publishes `dist/` to GitHub Pages. The custom domain is set in the repository's Pages settings.
 
-```sh
-pnpm install
-```
+## Commands
 
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
+```bash
+npm ci
+npm run dev        # dev server
+npm run build      # type check, build and prerender
+npm test           # Playwright suite against the production build
 ```
